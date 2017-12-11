@@ -3,12 +3,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Icon from '../../node_modules/react-native-vector-icons/FontAwesome';
 
 import Colors from '../util/Colors';
 import Navigation from '../Navigation';
 import NavButtons from '../util/NavButtons';
-import { View, Text, Divider } from '../util/DefaultComponents';
+import SimpleCell from '../component/SimpleCell';
+import Header from '../component/Header';
+import { View, Text, ScrollView, Divider } from '../util/DefaultComponents';
 
 // state map
 function mapStateToProps(state) {
@@ -35,37 +36,29 @@ class AddAccountView extends Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: Colors.WhiteAlmost }}>
-        <Icon.Button
-          name="qrcode"
-          color={Colors.GreenLight}
-          backgroundColor="transparent"
-          onPress={() => {}}
-          style={{ height: 60 }}
-        >
-          <Text>Scan Existing Account</Text>
-        </Icon.Button>
+      <ScrollView>
+        <Header title="Options" />
+        <SimpleCell
+          title="Scan Existing Account"
+          subTitle="Scan existing account's QR code to import it"
+          icon="ios-qr-scanner-outline"
+          renderRightArrow={true}
+        />
         <Divider />
-        <Icon.Button
-          name="pencil"
-          color={Colors.GreenLight}
-          backgroundColor="transparent"
-          onPress={() => {}}
-          style={{ height: 60 }}
-        >
-          <Text>Input Existing Account</Text>
-        </Icon.Button>
+        <SimpleCell
+          title="Enter Existing Account Details"
+          subTitle="Enter the details for an existing account to import it"
+          icon="ios-create-outline"
+          renderRightArrow={true}
+        />
         <Divider />
-        <Icon.Button
-          name="magic"
-          color={Colors.GreenLight}
-          backgroundColor="transparent"
-          onPress={() => {}}
-          style={{ height: 60 }}
-        >
-          <Text>Create New Account</Text>
-        </Icon.Button>
-      </View>
+        <SimpleCell
+          title="Create New Account"
+          subTitle="Securely generate a new account on this device"
+          icon="ios-color-wand-outline"
+          renderRightArrow={true}
+        />
+      </ScrollView>
     );
   }
 }

@@ -40,7 +40,7 @@ export const appFonts = {
     color: '#757575',
   },
   bodyS: {
-    fontFamily: 'Helvetica-Semibold',
+    fontFamily: 'Helvetica',
     fontSize: 11,
     color: '#BDBDBD',
   },
